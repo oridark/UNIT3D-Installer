@@ -25,7 +25,7 @@ class InstallCommand extends Command
         InstallerPolicies::class => 'Validating Installer Policies',
         ServerSetup::class => 'Server Setup',
         Prerequisites::class => 'Prerequisites',
-        DatabaseSetup::class => 'Configuring & Securing Database',
+        // DatabaseSetup::class => 'Configuring & Securing Database',
         PhpSetup::class => 'PHP & PHP-FPM Configuration',
         NginxSetup::class => 'Nginx Setup & Configurations',
         Unit3dSetup::class => 'UNIT3D-Community-Edition Settings and Configuration',
@@ -66,7 +66,7 @@ class InstallCommand extends Command
 
         $this->head("Finalizing Install");
 
-        $this->info();
+        // $this->info();
 
         $this->done();
     }

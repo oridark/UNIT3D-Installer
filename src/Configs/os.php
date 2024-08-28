@@ -14,7 +14,7 @@ return [
         'software' => [
             'build-essential' => 'Basic C/C++ Development Environment',
             'nginx' => 'Web Server',
-            'mysql-server' => 'Database Server',
+            // 'mysql-server' => 'Database Server',
             'supervisor' => 'A Process Control System',
             'nodejs' => 'JavaScript Run-time Environment (Includes npm)',
             'git' => 'Version Control',

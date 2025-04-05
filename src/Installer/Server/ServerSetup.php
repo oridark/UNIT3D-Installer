@@ -9,17 +9,18 @@ class ServerSetup extends BaseInstaller
 
     public function handle()
     {
-        $this->server();
+        $this->io->writeln('configuring server in Configs/app.php file!');
+        // $this->server();
 
-        $this->user();
+        // $this->user();
 
-        $this->database();
+        // $this->database();
 
-        $this->mail();
+        // $this->mail();
 
-        $this->chat();
+        // $this->chat();
 
-        $this->apiKeys();
+        // $this->apiKeys();
     }
 
     protected function server()

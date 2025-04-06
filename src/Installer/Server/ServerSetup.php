@@ -10,6 +10,8 @@ class ServerSetup extends BaseInstaller
     public function handle()
     {
         $this->io->writeln('configuring server in Configs/app.php file!');
+        $this->io->writeln('curent ip: '. ip());
+        $this->config->app('ip', trim(ip()));
         // $this->server();
 
         // $this->user();

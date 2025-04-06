@@ -23,7 +23,7 @@ return [
     /* Main Server */
     'server_name' => 'u3d',
     'ip' => '152.53.237.238',
-    'hostname' => 'test.movietosee.top',
+    'hostname' => 'movietosee.top',
     'ssl' => true,
     'owner' => 'oggrr',
     'owner_email' => 'moviecollections.fun@gmail.com',

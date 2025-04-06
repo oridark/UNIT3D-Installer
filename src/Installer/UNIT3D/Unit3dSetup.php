@@ -27,12 +27,13 @@ class Unit3dSetup extends BaseInstaller
 
         $install_dir = $this->config->os('install_dir');
         $url = $this->config->app('repository');
+        $version = $this->config->app('version');
 
         if (is_dir($install_dir)) {
             $this->process(["rm -rf $install_dir"]);
         }
 
-        $this->process(["git clone $url $install_dir"]);
+        $this->process(["git clone -b $version $url $install_dir"]);
 
         if (!is_dir($install_dir)) {
             $this->throwError('Something went wrong with the cloning process. Please report this bug!');

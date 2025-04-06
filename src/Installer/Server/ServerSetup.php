@@ -10,7 +10,8 @@ class ServerSetup extends BaseInstaller
     public function handle()
     {   
         $this->io->writeln('configuring server in Configs/app.php file!');
-        // $this->server();
+        
+        $this->server();
 
         // $this->user();
 
@@ -21,12 +22,13 @@ class ServerSetup extends BaseInstaller
         // $this->chat();
 
         // $this->apiKeys();
+        $this->repository();
     }
 
     protected function server()
     {
-        $server_name = $this->question('Server Name', hostname());
-        $this->config->app('server_name', trim($server_name));
+        // $server_name = $this->question('Server Name', hostname());
+        // $this->config->app('server_name', trim($server_name));
 
         do {
             $hostname = strtolower($this->question('The domain your going to use. ( Example: example.com )', fqdn()));
@@ -48,12 +50,12 @@ class ServerSetup extends BaseInstaller
         } while (!$valid);
 
         $this->config->app('hostname', trim($hostname));
+        $this->io->writeln('curent ip: '. ip());
+        // $ip = $this->question('Primary IP Address', ip());
+        $this->config->app('ip', trim(ip()));
 
-        $ip = $this->question('Primary IP Address', ip());
-        $this->config->app('ip', trim($ip));
-
-        $ssl = $this->io->choice('Enable SSL (https)', ['yes', 'no'], 'yes');
-        $this->config->app('ssl', $ssl);
+        // $ssl = $this->io->choice('Enable SSL (https)', ['yes', 'no'], 'yes');
+        // $this->config->app('ssl', $ssl);
 
     }
 
@@ -163,5 +165,19 @@ class ServerSetup extends BaseInstaller
         $value = $this->question('Mail From Name', '');
         $this->config->app('mail_from_name', $value);
 
+    }
+
+    protected function repository()
+    {
+        $this->io->writeln('<fg=blue>Version Settings</>');
+        $this->seperator();
+
+        $value = $this->io->choice('version', [
+            "8.3.3",
+            "8.3.6",
+            "8.3.3-official",
+            "8.3.6-official",
+        ], '8.3.6');
+        $this->config->app('version', $value);
     }
 }
